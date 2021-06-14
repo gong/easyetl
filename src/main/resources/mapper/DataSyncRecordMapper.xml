@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bfd.mac.repository.DataSyncRecordMapper">
+
+  <select id="find" resultType="">
+    select * from data_sync_record where `table_name` = #{tableName}
+  </select>
+
+  <insert id="insert" parameterType="com.bfd.mac.po.DataSyncRecord">
+    insert into data_sync_record (`table_name`, `sync_field`)values (#{tableName}, #{syncField})
+  </insert>
+
+  <update id="updateSync" parameterType="com.bfd.mac.po.DataSyncRecord">
+    update data_sync_record set `sync_value` = #{syncValue} where `table_name` = #{tableName}
+  </update>
+
+
+</mapper>
